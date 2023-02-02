@@ -4,10 +4,12 @@ public class MarsRover
 {
     private Compass _compass = new();
     private ICommand leftCommand;
+    private ICommand rightCommand;
 
     public MarsRover()
     {
         this.leftCommand = new LeftCommand(_compass);
+        this.rightCommand = new rightCommand(_compass);
     }
 
     public string Execute(string command)
@@ -17,12 +19,11 @@ public class MarsRover
             if (singleCommand.Equals('L'))
             {
                 leftCommand.Execute();
-                
             }
             
             if (singleCommand.Equals('R'))
             {
-                _compass.RotateRight();
+                rightCommand.Execute();
             }
         }
 
