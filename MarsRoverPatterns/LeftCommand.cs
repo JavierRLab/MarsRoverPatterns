@@ -7,6 +7,10 @@ internal class LeftCommand : ICommand
     public LeftCommand(Compass compass)
     {
         _compass = compass;
-        throw new NotImplementedException();
+    }
+
+    public void Execute()
+    {
+        _compass.RotateLeft();
     }
 }
