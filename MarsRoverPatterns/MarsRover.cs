@@ -4,6 +4,6 @@ public class MarsRover
 {
     public string execute(string command)
     {
-        throw new NotImplementedException();
+        return "0:0:N";
     }
 }
