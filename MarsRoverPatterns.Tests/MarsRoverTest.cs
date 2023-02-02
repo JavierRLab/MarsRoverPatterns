@@ -24,6 +24,15 @@ public class MarsRoverTest
     {
         Assert.Equal(expectedPosition, _marsRover.execute(command));
     }
+    
+[Theory]
+    [InlineData("L", "0:0:W")]
+    [InlineData("LLL", "0:0:E")]
+    [InlineData("LLLLLL", "0:0:S")]
+    public void TurnLeft(string command, string expectedPosition)
+    {
+        Assert.Equal(expectedPosition, _marsRover.execute(command));
+    }
 
 
 }

@@ -9,6 +9,11 @@ public class MarsRover
     {
         foreach (var singleCommand in command)
         {
+            if (singleCommand.Equals('L'))
+            {
+                rotateLeft();
+            }
+            
             if (singleCommand.Equals('R'))
             {
                 rotateRight();
@@ -16,6 +21,11 @@ public class MarsRover
         }
 
         return $"0:0:{compassDirections[directionIndex]}";
+    }
+
+    private void rotateLeft()
+    {
+        directionIndex = (compassDirections.Length + directionIndex - 1) % compassDirections.Length;
     }
 
     private void rotateRight()
