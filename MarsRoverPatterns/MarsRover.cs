@@ -2,34 +2,25 @@
 
 public class MarsRover
 {
-    private string[] compassDirections = {"N","E","S","W"};
-    private int directionIndex;
-
-    public string execute(string command)
+    private readonly Compass _compass = new();
+    // private ICommand leftCommand = new LeftCommand(_compass);
+    
+    public string Execute(string command)
     {
         foreach (var singleCommand in command)
         {
             if (singleCommand.Equals('L'))
             {
-                rotateLeft();
+                _compass.RotateLeft();
+                
             }
             
             if (singleCommand.Equals('R'))
             {
-                rotateRight();
+                _compass.RotateRight();
             }
         }
 
-        return $"0:0:{compassDirections[directionIndex]}";
-    }
-
-    private void rotateLeft()
-    {
-        directionIndex = (compassDirections.Length + directionIndex - 1) % compassDirections.Length;
-    }
-
-    private void rotateRight()
-    {
-        directionIndex = (directionIndex + 1) % compassDirections.Length;
+        return $"0:0:{_compass.Direction()}";
     }
 }

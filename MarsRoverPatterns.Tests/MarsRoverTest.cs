@@ -2,7 +2,7 @@ namespace MarsRoverPatterns.Tests;
 
 public class MarsRoverTest
 {
-    private MarsRover _marsRover;
+    private readonly MarsRover _marsRover;
 
     public MarsRoverTest()
     {
@@ -13,7 +13,7 @@ public class MarsRoverTest
     [Fact]
     public void CheckInitialPosition()
     {
-        Assert.Equal("0:0:N", _marsRover.execute(""));
+        Assert.Equal("0:0:N", _marsRover.Execute(""));
     }
 
     [Theory]
@@ -22,7 +22,7 @@ public class MarsRoverTest
     [InlineData("RRRRRR", "0:0:S")]
     public void TurnRight(string command, string expectedPosition)
     {
-        Assert.Equal(expectedPosition, _marsRover.execute(command));
+        Assert.Equal(expectedPosition, _marsRover.Execute(command));
     }
     
 [Theory]
@@ -31,7 +31,7 @@ public class MarsRoverTest
     [InlineData("LLLLLL", "0:0:S")]
     public void TurnLeft(string command, string expectedPosition)
     {
-        Assert.Equal(expectedPosition, _marsRover.execute(command));
+        Assert.Equal(expectedPosition, _marsRover.Execute(command));
     }
 
 
